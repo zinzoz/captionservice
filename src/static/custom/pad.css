@@ -1,0 +1,24 @@
+
+/*
+  custom css files are loaded after core css files. Simply use the same selector to override a style.
+  Example:
+      #editbar LI {border:1px solid #000;}
+    overrides
+      #editbar LI {border:1px solid #d5d5d5;}
+    from pad.css
+*/
+
+.toolbar {
+background: #f7f7f7;
+background: -webkit-linear-gradient(#CC181E,#201B15 300%);
+background: -moz-linear-gradient(#CC181E,#201B15 300%);
+background: -o-linear-gradient(#CC181E,#201B15 300%);
+background: -ms-linear-gradient(#CC181E,#201B15 300%);
+background: linear-gradient(#CC181E,#201B15 300%)
+border-bottom: 1px solid #ccc;
+overflow: hidden;
+padding-top: 4px;
+width: 100%;
+white-space: nowrap;
+height: 32px;
+}
