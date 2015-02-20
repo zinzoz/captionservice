@@ -23,6 +23,8 @@ var customError = require("../utils/customError");
 var Pad = require("../db/Pad").Pad;
 var db = require("./DB").db;
 
+
+
 /** 
  * A cache of all loaded Pads.
  *
@@ -201,6 +203,8 @@ exports.doesPadExists = function(padId, callback)
 
 //returns a sanitized padId, respecting legacy pad id formats
 exports.sanitizePadId = function(padId, callback) {
+
+  exports.padid = padId;
   var transform_index = arguments[2] || 0;
   //we're out of possible transformations, so just return it
   if(transform_index >= padIdTransforms.length)

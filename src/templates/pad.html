@@ -2,7 +2,7 @@
   var settings = require("ep_etherpad-lite/node/utils/Settings")
     , hooks = require('ep_etherpad-lite/static/js/pluginfw/hooks')
     , langs = require("ep_etherpad-lite/node/hooks/i18n").availableLangs
-	
+	  , padid = require("ep_etherpad-lite/node/db/PadManager")
     ;
 	
 			   
@@ -201,27 +201,7 @@
         </div>
 
         <div id="import_export" class="popup">
-            <h1 data-l10n-id="pad.importExport.import_export"></h1>
-            <div class="column acl-write">
-                <% e.begin_block("importColumn"); %>
-                <h2 data-l10n-id="pad.importExport.import"></h2>
-                <div class="importmessage" id="importmessageabiword" data-l10n-id="pad.importExport.abiword.innerHTML"></div><br>
-                <form id="importform" method="post" action="" target="importiframe" enctype="multipart/form-data">
-                    <div class="importformdiv" id="importformfilediv">
-                        <input type="file" name="file" size="10" id="importfileinput">
-                        <div class="importmessage" id="importmessagefail"></div>
-                    </div>
-                    <div id="import"></div>
-                    <div class="importmessage" id="importmessagesuccess" data-l10n-id="pad.importExport.importSuccessful"></div>
-                    <div class="importformdiv" id="importformsubmitdiv">
-                        <span class="nowrap">
-                            <input type="submit" name="submit" value="Import Now" disabled="disabled" id="importsubmitinput">
-                            <div alt="" id="importstatusball" class="loadingAnimation" align="top"></div>
-                        </span>
-                    </div>
-                </form>
-                <% e.end_block(); %>
-            </div>
+            
             <div class="column" id="exportColumn">
                 <h2 data-l10n-id="pad.importExport.export"></h2>
                 <% e.begin_block("exportColumn"); %>
@@ -429,8 +409,11 @@
    //%>
 		
 		$(document).ready(function(){
-		var mountpoint = "stream";
-		 $(".customAudio").append( '<source src="http://202.44.12.173:8000/'+mountpoint+'" type="audio/mp3">');
+		var mountpoint = "<%=padid.padId%>";
+    if ( mountpoint.substring(0,1) == "r")
+      { mountpoint=mountpoint.substring(2);}
+
+		 $(".customAudio").append( '<source src="http://128.199.174.199:8000/'+mountpoint+'" type="audio/mp3">');
 		
 		 });
 		 </script>

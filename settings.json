@@ -5,7 +5,7 @@
 */
 {
   // Name your instance!
-  "title": "micky",
+  "title": "captionservice",
 
   // favicon default name
   // alternatively, set up a fully specified Url to your own favicon
@@ -121,13 +121,12 @@
       ["clearauthorship"]
     ],
     "right": [
-      ["importexport" ], //, "timeslider", "savedrevision"],
-      ["settings", "embed"],
-      ["showusers"]
-    ],
-    //"timeslider": [
-      //["timeslider_export", "timeslider_returnToPad"]
-    //]
+        [ "importexport" ],                             
+        [ "settings", "embed" ],
+        [ "showusers" ]
+    ]
+
+    
   },
   
 
