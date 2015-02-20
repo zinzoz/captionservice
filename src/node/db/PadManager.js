@@ -204,7 +204,7 @@ exports.doesPadExists = function(padId, callback)
 //returns a sanitized padId, respecting legacy pad id formats
 exports.sanitizePadId = function(padId, callback) {
 
-  exports.padid = padId;
+  
   var transform_index = arguments[2] || 0;
   //we're out of possible transformations, so just return it
   if(transform_index >= padIdTransforms.length)
@@ -215,7 +215,7 @@ exports.sanitizePadId = function(padId, callback) {
   else
   {
     exports.doesPadExists(padId, function(junk, exists)
-    {
+    {  exports.mount = padId;
       if(exists)
       {
         callback(padId);
